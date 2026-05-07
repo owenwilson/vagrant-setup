@@ -45,6 +45,7 @@ sudo systemctl restart sshd
 sudo systemctl status sshd
 ```
 
+- check [stackoverflow information](https://stackoverflow.com/questions/11672525/centos-6-3-ssh-bind-to-port-xxx-on-0-0-0-0-failed-permission-denied)
 
 ### configure port RHEL/Fedora
 
@@ -61,6 +62,7 @@ cd folder_vagrant
 ls -l Vagrantfile
 vagrant up
 ```
+
 
 ## provide remote access and configuration
 - install the plugin on the local host
