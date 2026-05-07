@@ -1,0 +1,18 @@
+# --- Vagrant ---
+.vagrant/
+.controller/.vagrant
+Vagrantfile
+.controller/Vagrantfile
+
+# Logs and debug
+*.log
+
+# --- system files ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- temporals ---
+*.swp
+*~

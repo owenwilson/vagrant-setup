@@ -1,0 +1,50 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  #config.vm.box = "ubuntu/focal64"
+  config.vm.box = "tknerr/managed-server-dummy"
+  #config.vm.box_version = "20240821.0.1"
+
+  # config.vm.network "private_network", ip: "192.168.33.10"
+
+  # Enable public network
+  config.vm.network "public_network"
+
+  config.vm.provider :managed do |managed, override|
+    managed.server = "192.168.33.10"
+    # configure the ssh connection for remote deployment
+    config.ssh.username = "my-username"
+    config.ssh.port = 2222
+  end
+  # config.vm.synced_folder "../data", "/vagrant_data"
+  config.vm.synced_folder ".", "/vagrant", type: "rsync"
+
+  # config.vm.synced_folder ".", "/vagrant", disabled: true
+
+  # provider-specific virtualbox
+  config.vm.provider "virtualbox" do |vb|
+    # Name
+    vb.name = "ansible-example-node-1"
+
+    # RAM Memory & CPU
+    vb.memory = "2048"
+    vb.cpus = 1
+  end
+  # config.vm.provider "virtualbox" do |vb|
+  #   # Display the VirtualBox GUI when booting the machine
+  #   vb.gui = true
+  #
+  #   # Customize the amount of memory on the VM:
+  #   vb.memory = "1024"
+  # end
+  #
+  # config.vm.provision "shell", inline: <<-SHELL
+  #   apt-get update
+  #   apt-get install -y apache2
+  # SHELL
+end
