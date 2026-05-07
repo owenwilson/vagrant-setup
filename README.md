@@ -63,6 +63,17 @@ ls -l Vagrantfile
 vagrant up
 ```
 
+- ssh connect to vagrant user
+```sh
+vagrant ssh
+```
+
+- alternative ssh connection
+```sh
+ssh -i ./folder_vagrant_file/.vagrant/machines/default/virtualbox/private_key vagrant@IP
+```
+
+
 
 ## provide remote access and configuration
 - install the plugin on the local host
